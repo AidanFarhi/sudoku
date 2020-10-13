@@ -43,7 +43,7 @@ export default class Board extends React.Component{
     }
     render() {
         return (
-            <div>
+            <div id='main-div'>
                 {this.makeTable(this.state.board)}
             </div>
         )
