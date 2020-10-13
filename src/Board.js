@@ -44,6 +44,10 @@ export default class Board extends React.Component{
     render() {
         return (
             <div id='main-div'>
+                <div id='header-div'>
+                    <h1 id='header'>Sudoku</h1>
+                    <h4 id='header-blurb'>the samurai of puzzles</h4>
+                </div>
                 {this.makeTable(this.state.board)}
             </div>
         )

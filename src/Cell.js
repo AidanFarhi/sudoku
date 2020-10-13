@@ -10,7 +10,7 @@ export default class Cell extends React.Component {
     render() {
         return (
             <td className='cell'>
-                {this.state.value}
+                <span>{this.state.value}</span>
             </td>
         )
     }

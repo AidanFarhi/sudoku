@@ -1,3 +1,20 @@
+body {
+    background: url('scene.jpg');
+    background-size: cover;
+}
+#header-div {
+    text-align: center;
+    color: rgb(4, 49, 4);
+    font-family: 'Farsan', cursive;
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 30px;
+    opacity: .8;
+}
+#header {
+    border-bottom: 1px solid rgb(4, 49, 4);
+}
 #main-div {
     padding-top: 80px;
 }
@@ -17,8 +34,12 @@ td {
     border: 1px solid;
     text-align:center;
 }
+span {
+    color: rgb(1, 85, 5);
+    font-size: 32px;
+}
 td:hover {
-    background-color: rgb(231, 248, 253);
+    background-color: rgb(213, 225, 213);
 }
 td:nth-child(3n) {
     border-right: 2px solid rgb(34, 34, 34);
