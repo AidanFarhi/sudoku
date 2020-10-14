@@ -5,14 +5,27 @@ export default class Cell extends React.Component {
         super(props)
         this.state = {
             value: props.value,
-            colId: props.colId,
-            rowId: props.rowId
+            col: props.colId,
+            row: props.rowId
+        }
+    }
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.value !== this.state.value) {
+            this.setState({ 
+                value: nextProps.value 
+            })
         }
     }
     render() {
+        const { row, col, value } = this.state
         return (
-            <td id={this.state.rowId + ' ' + this.state.colId} className='cell'>
-                <span>{this.state.value === 0 ? null : this.state.value}</span>
+            <td id={row + ' ' + col} 
+                className='cell'
+                onClick={()=> this.props.method(row, col)}
+            >
+                <span>
+                    {value === 0 ? null : value}
+                </span>
             </td>
         )
     }

@@ -7,8 +7,10 @@ export default class Board extends React.Component{
         super()
         this.state = {
             board: [],
-            clicked: 0
+            clicked: 0,
+            displayBoard: []
         }
+        this.changeCellValue = this.changeCellValue.bind(this)
     }
     makeBoard() {
         const board = []
@@ -16,7 +18,8 @@ export default class Board extends React.Component{
             board.push(Array(9).fill(0))
         }
         this.setState({
-            board: board
+            board: board,
+            displayBoard: this.makeTable(board)
         })
     }
     makeTable(arr) {
@@ -32,12 +35,12 @@ export default class Board extends React.Component{
         const rowId = i
         const rw = 
         <tr key={i} id={i}>
-            {r.map((c, i) => this.makeCell(c, i, rowId))}
+            {r.map((val, i) => this.makeCell(val, i, rowId))}
         </tr>
         return rw
     }
-    makeCell(c, i, rowId) {
-        const cell = <Cell key={i} value={c} colId={i} rowId={rowId}/>
+    makeCell(val, i, rowId) {
+        const cell = <Cell key={i} value={val} colId={i} rowId={rowId} method={this.changeCellValue}/>
         return cell
     }
     setValue(num) {
@@ -45,9 +48,15 @@ export default class Board extends React.Component{
             clicked: num
         })
     }
-    changeCellValue() {
-
+    changeCellValue(r, c) {
+        const newBoard = this.state.board
+        newBoard[r][c] = this.state.clicked
+        this.setState({
+            board: newBoard,
+            displayBoard: this.makeTable(newBoard)
+        })
     }
+    
     componentDidMount() {
         this.makeBoard()
     }
@@ -58,7 +67,7 @@ export default class Board extends React.Component{
                     <h1 id='header'>Sudoku</h1>
                     <h4 id='header-blurb'>the samurai of puzzles</h4>
                 </div>
-                {this.makeTable(this.state.board)}
+                {this.state.displayBoard}
                 <div id='number-selection-div'>
                     <span id='1' 
                           className={this.state.clicked === 1 ? 'clicked number-selection' : 'number-selection'} 
