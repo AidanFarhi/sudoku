@@ -56,7 +56,6 @@ export default class Board extends React.Component{
             displayBoard: this.makeTable(newBoard)
         })
     }
-    
     componentDidMount() {
         this.makeBoard()
     }

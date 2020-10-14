@@ -23,9 +23,9 @@ export default class Cell extends React.Component {
                 className='cell'
                 onClick={()=> this.props.method(row, col)}
             >
-                <span>
-                    {value === 0 ? null : value}
-                </span>
+            <span>
+                {value === 0 ? null : value}
+            </span>
             </td>
         )
     }
