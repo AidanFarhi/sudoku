@@ -4,13 +4,15 @@ export default class Cell extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            value: props.value
+            value: props.value,
+            colId: props.colId,
+            rowId: props.rowId
         }
     }
     render() {
         return (
-            <td className='cell'>
-                <span>{this.state.value}</span>
+            <td id={this.state.rowId + ' ' + this.state.colId} className='cell'>
+                <span>{this.state.value === 0 ? null : this.state.value}</span>
             </td>
         )
     }
