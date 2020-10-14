@@ -71,31 +71,44 @@ export default class Board extends React.Component{
                 <div id='number-selection-div'>
                     <span id='1' 
                           className={clicked === 1 ? 'clicked number-selection' : 'number-selection'} 
-                          onClick={()=> this.setValue(1)}>1</span>
+                          onClick={()=> this.setValue(1)}>1
+                    </span>
                     <span id='2' 
                           className={clicked === 2 ? 'clicked number-selection' : 'number-selection'} 
-                          onClick={()=> this.setValue(2)}>2</span>
+                          onClick={()=> this.setValue(2)}>2
+                    </span>
                     <span id='3' 
                           className={clicked === 3 ? 'clicked number-selection' : 'number-selection'} 
-                          onClick={()=> this.setValue(3)}>3</span>
+                          onClick={()=> this.setValue(3)}>3
+                    </span>
                     <span id='4' 
                           className={clicked === 4 ? 'clicked number-selection' : 'number-selection'} 
-                          onClick={()=> this.setValue(4)}>4</span>
+                          onClick={()=> this.setValue(4)}>4
+                    </span>
                     <span id='5' 
                           className={clicked === 5 ? 'clicked number-selection' : 'number-selection'} 
-                          onClick={()=> this.setValue(5)}>5</span>
+                          onClick={()=> this.setValue(5)}>5
+                    </span>
                     <span id='6' 
                           className={clicked === 6 ? 'clicked number-selection' : 'number-selection'} 
-                          onClick={()=> this.setValue(6)}>6</span>
+                          onClick={()=> this.setValue(6)}>6
+                    </span>
                     <span id='7' 
                           className={clicked === 7 ? 'clicked number-selection' : 'number-selection'} 
-                          onClick={()=> this.setValue(7)}>7</span>
+                          onClick={()=> this.setValue(7)}>7
+                    </span>
                     <span id='8' 
                           className={clicked === 8 ? 'clicked number-selection' : 'number-selection'} 
-                          onClick={()=> this.setValue(8)}>8</span>
+                          onClick={()=> this.setValue(8)}>8
+                    </span>
                     <span id='9' 
                           className={clicked === 9 ? 'clicked number-selection' : 'number-selection'} 
-                          onClick={()=> this.setValue(9)}>9</span>
+                          onClick={()=> this.setValue(9)}>9
+                    </span>
+                    <span id='X' 
+                          className={clicked === null ? 'clicked number-selection' : 'number-selection'} 
+                          onClick={()=> this.setValue(null)}>X
+                    </span>
                 </div>
             </div>
         )
