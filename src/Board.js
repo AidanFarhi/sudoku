@@ -60,6 +60,7 @@ export default class Board extends React.Component{
         this.makeBoard()
     }
     render() {
+        const clicked = this.state.clicked
         return (
             <div id='main-div'>
                 <div id='header-div'>
@@ -69,31 +70,31 @@ export default class Board extends React.Component{
                 {this.state.displayBoard}
                 <div id='number-selection-div'>
                     <span id='1' 
-                          className={this.state.clicked === 1 ? 'clicked number-selection' : 'number-selection'} 
+                          className={clicked === 1 ? 'clicked number-selection' : 'number-selection'} 
                           onClick={()=> this.setValue(1)}>1</span>
                     <span id='2' 
-                          className={this.state.clicked === 2 ? 'clicked number-selection' : 'number-selection'} 
+                          className={clicked === 2 ? 'clicked number-selection' : 'number-selection'} 
                           onClick={()=> this.setValue(2)}>2</span>
                     <span id='3' 
-                          className={this.state.clicked === 3 ? 'clicked number-selection' : 'number-selection'} 
+                          className={clicked === 3 ? 'clicked number-selection' : 'number-selection'} 
                           onClick={()=> this.setValue(3)}>3</span>
                     <span id='4' 
-                          className={this.state.clicked === 4 ? 'clicked number-selection' : 'number-selection'} 
+                          className={clicked === 4 ? 'clicked number-selection' : 'number-selection'} 
                           onClick={()=> this.setValue(4)}>4</span>
                     <span id='5' 
-                          className={this.state.clicked === 5 ? 'clicked number-selection' : 'number-selection'} 
+                          className={clicked === 5 ? 'clicked number-selection' : 'number-selection'} 
                           onClick={()=> this.setValue(5)}>5</span>
                     <span id='6' 
-                          className={this.state.clicked === 6 ? 'clicked number-selection' : 'number-selection'} 
+                          className={clicked === 6 ? 'clicked number-selection' : 'number-selection'} 
                           onClick={()=> this.setValue(6)}>6</span>
                     <span id='7' 
-                          className={this.state.clicked === 7 ? 'clicked number-selection' : 'number-selection'} 
+                          className={clicked === 7 ? 'clicked number-selection' : 'number-selection'} 
                           onClick={()=> this.setValue(7)}>7</span>
                     <span id='8' 
-                          className={this.state.clicked === 8 ? 'clicked number-selection' : 'number-selection'} 
+                          className={clicked === 8 ? 'clicked number-selection' : 'number-selection'} 
                           onClick={()=> this.setValue(8)}>8</span>
                     <span id='9' 
-                          className={this.state.clicked === 9 ? 'clicked number-selection' : 'number-selection'} 
+                          className={clicked === 9 ? 'clicked number-selection' : 'number-selection'} 
                           onClick={()=> this.setValue(9)}>9</span>
                 </div>
             </div>
