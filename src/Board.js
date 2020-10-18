@@ -1,6 +1,7 @@
 import React from 'react'
 import Cell from './Cell'
 import '../src/Board.css'
+const GameGenerator = require('./GameGenMethods')
 
 export default class Board extends React.Component{
     constructor() {
@@ -13,10 +14,7 @@ export default class Board extends React.Component{
         this.changeCellValue = this.changeCellValue.bind(this)
     }
     makeBoard() {
-        const board = []
-        for (let i = 0; i < 9; i++) {
-            board.push(Array(9).fill(0))
-        }
+        const board = GameGenerator.createMedium
         this.setState({
             board: board,
             displayBoard: this.makeTable(board)
