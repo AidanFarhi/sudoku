@@ -9,11 +9,25 @@ export default class Board extends React.Component{
         this.state = {
             board: [],
             clicked: 0,
-            displayBoard: []
+            displayBoard: [],
+            currentDifficulty: 'medium'
         }
         this.changeCellValue = this.changeCellValue.bind(this)
     }
-    makeBoard() {
+    makeNewGame(difficulty) {
+        let newGame = null
+        if (difficulty === 'easy') newGame = GameGenerator.createEasy
+        if (difficulty === 'medium') newGame = GameGenerator.createMedium
+        if (difficulty === 'hard') newGame = GameGenerator.createHard
+        if (difficulty === 'expert') newGame = GameGenerator.createExpert
+        this.setState({
+            board: newGame,
+            displayBoard: this.makeTable(newGame),
+            currentDifficulty: difficulty
+        })
+
+    }
+    makeDefaultBoard() {
         const board = GameGenerator.createMedium
         this.setState({
             board: board,
@@ -55,15 +69,34 @@ export default class Board extends React.Component{
         })
     }
     componentDidMount() {
-        this.makeBoard()
+        this.makeDefaultBoard()
     }
     render() {
         const clicked = this.state.clicked
+        const difficulty = this.state.currentDifficulty
         return (
             <div id='main-div'>
                 <div id='header-div'>
                     <h1 id='header'>Sudoku</h1>
                     <h4 id='header-blurb'>the samurai of puzzles</h4>
+                </div>
+                <div id='difficulty-selection'>
+                    <button 
+                        onClick={()=> this.makeNewGame('easy')}
+                        className={difficulty === 'easy' ? 'clicked-difficulty-selection' : null}>Easy
+                    </button>
+                    <button 
+                        onClick={()=> this.makeNewGame('medium')}
+                        className={difficulty === 'medium' ? 'clicked-difficulty-selection' : null}>Medium
+                    </button>
+                    <button 
+                        onClick={()=> this.makeNewGame('hard')}
+                        className={difficulty === 'hard' ? 'clicked-difficulty-selection' : null}>Hard
+                    </button>
+                    <button 
+                        onClick={()=> this.makeNewGame('expert')}
+                        className={difficulty === 'expert' ? 'clicked-difficulty-selection' : null}>Expert
+                    </button>
                 </div>
                 {this.state.displayBoard}
                 <div id='number-selection-div'>
