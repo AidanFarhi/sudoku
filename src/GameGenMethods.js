@@ -134,7 +134,7 @@ function solver(board) {
     }
     return false
 }
-function makeBoard() {
+function makeEmptyBoard() {
     const board = []
     for (let i = 0; i < 9; i++) {
         board.push(Array(9).fill(0))
@@ -159,7 +159,7 @@ function prefill(board) {
     }
 }
 function fullBoardMaker() {
-    const board = makeBoard()
+    const board = makeEmptyBoard()
     prefill(board)
     solver(board)    
     return board
