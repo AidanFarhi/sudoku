@@ -15,8 +15,23 @@ body {
 #header {
     border-bottom: 1px solid rgb(4, 49, 4);
 }
+#difficulty-selection {
+    margin-left: 42%;
+    margin-right: 38%;
+}
+#difficulty-selection > button {
+    padding: 10px;
+    color:rgb(4, 49, 4);
+    margin-right: 5px;
+    background: transparent;
+    border: 1px solid rgb(34, 34, 34);
+    border-radius: 2px;
+}
+#difficulty-selection > button:hover {
+    background-color: rgb(213, 225, 213);
+}
 #main-div {
-    padding-top: 80px;
+    padding-top: 60px;
 }
 table {
     margin: 1em auto;

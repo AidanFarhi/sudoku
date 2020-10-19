@@ -65,6 +65,12 @@ export default class Board extends React.Component{
                     <h1 id='header'>Sudoku</h1>
                     <h4 id='header-blurb'>the samurai of puzzles</h4>
                 </div>
+                <div id='difficulty-selection'>
+                    <button>Easy</button>
+                    <button>Medium</button>
+                    <button>Hard</button>
+                    <button>Expert</button>
+                </div>
                 {this.state.displayBoard}
                 <div id='number-selection-div'>
                     <span id='1' 
