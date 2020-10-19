@@ -13,7 +13,19 @@ export default class Board extends React.Component{
         }
         this.changeCellValue = this.changeCellValue.bind(this)
     }
-    makeBoard() {
+    makeNewGame(difficulty) {
+        let newGame = null
+        if (difficulty === 'easy') newGame = GameGenerator.createEasy
+        if (difficulty === 'medium') newGame = GameGenerator.createMedium
+        if (difficulty === 'hard') newGame = GameGenerator.createHard
+        if (difficulty === 'expert') newGame = GameGenerator.createExpert
+        this.setState({
+            board: newGame,
+            displayBoard: this.makeTable(newGame)
+        })
+
+    }
+    makeDefaultBoard() {
         const board = GameGenerator.createMedium
         this.setState({
             board: board,
@@ -55,7 +67,7 @@ export default class Board extends React.Component{
         })
     }
     componentDidMount() {
-        this.makeBoard()
+        this.makeDefaultBoard()
     }
     render() {
         const clicked = this.state.clicked
@@ -66,10 +78,10 @@ export default class Board extends React.Component{
                     <h4 id='header-blurb'>the samurai of puzzles</h4>
                 </div>
                 <div id='difficulty-selection'>
-                    <button>Easy</button>
-                    <button>Medium</button>
-                    <button>Hard</button>
-                    <button>Expert</button>
+                    <button onClick={()=> this.makeNewGame('easy')}>Easy</button>
+                    <button onClick={()=> this.makeNewGame('medium')}>Medium</button>
+                    <button onClick={()=> this.makeNewGame('hard')}>Hard</button>
+                    <button onClick={()=> this.makeNewGame('expert')}>Expert</button>
                 </div>
                 {this.state.displayBoard}
                 <div id='number-selection-div'>
