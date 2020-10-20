@@ -74,4 +74,19 @@ function sudokuValidator(solution) {
     return masterCheck(solution)
 }
 
-module.exports = sudokuValidator
+function boardFull(board) {
+    let full = true
+    for (let r = 0; r < board.length; r++) {
+        for (let c = 0; c < board.length; c++) {
+            if (board[r][c] === 0) {
+                full = false
+            }
+        }
+    }
+    return full
+}
+
+module.exports = {
+    isValid: sudokuValidator,
+    isFull: boardFull
+}

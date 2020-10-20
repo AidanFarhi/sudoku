@@ -2,6 +2,7 @@ import React from 'react'
 import Cell from './Cell'
 import '../src/Board.css'
 const GameGenerator = require('./GameGenMethods')
+const SudokuValidator = require('./SudokuValidator')
 
 export default class Board extends React.Component{
     constructor() {
@@ -10,10 +11,13 @@ export default class Board extends React.Component{
             board: [],
             clicked: 0,
             displayBoard: [],
-            currentDifficulty: 'medium'
+            currentDifficulty: 'medium',
+            complete: false,
+            won: false
         }
         this.changeCellValue = this.changeCellValue.bind(this)
     }
+
     makeNewGame(difficulty) {
         let newGame = null
         if (difficulty === 'easy') newGame = GameGenerator.createEasy
@@ -60,6 +64,14 @@ export default class Board extends React.Component{
             clicked: num
         })
     }
+    checkWin(board) {
+        const full = SudokuValidator.isFull(board)
+        const valid = SudokuValidator.isValid(board)
+        this.setState({
+            complete: full,
+            won: valid
+        })
+    }
     changeCellValue(r, c) {
         const newBoard = this.state.board
         newBoard[r][c] = this.state.clicked
@@ -67,13 +79,15 @@ export default class Board extends React.Component{
             board: newBoard,
             displayBoard: this.makeTable(newBoard)
         })
+        this.checkWin(newBoard)
     }
+
     componentDidMount() {
         this.makeDefaultBoard()
     }
+
     render() {
-        const clicked = this.state.clicked
-        const difficulty = this.state.currentDifficulty
+        const  { clicked, currentDifficulty, complete, won } = this.state
         return (
             <div id='main-div'>
                 <div id='header-div'>
@@ -83,19 +97,19 @@ export default class Board extends React.Component{
                 <div id='difficulty-selection'>
                     <button 
                         onClick={()=> this.makeNewGame('easy')}
-                        className={difficulty === 'easy' ? 'clicked-difficulty-selection' : null}>Easy
+                        className={currentDifficulty === 'easy' ? 'clicked-difficulty-selection' : null}>Easy
                     </button>
                     <button 
                         onClick={()=> this.makeNewGame('medium')}
-                        className={difficulty === 'medium' ? 'clicked-difficulty-selection' : null}>Medium
+                        className={currentDifficulty === 'medium' ? 'clicked-difficulty-selection' : null}>Medium
                     </button>
                     <button 
                         onClick={()=> this.makeNewGame('hard')}
-                        className={difficulty === 'hard' ? 'clicked-difficulty-selection' : null}>Hard
+                        className={currentDifficulty === 'hard' ? 'clicked-difficulty-selection' : null}>Hard
                     </button>
                     <button 
                         onClick={()=> this.makeNewGame('expert')}
-                        className={difficulty === 'expert' ? 'clicked-difficulty-selection' : null}>Expert
+                        className={currentDifficulty === 'expert' ? 'clicked-difficulty-selection' : null}>Expert
                     </button>
                 </div>
                 {this.state.displayBoard}
@@ -140,6 +154,10 @@ export default class Board extends React.Component{
                           className={clicked === null ? 'clicked number-selection' : 'number-selection'} 
                           onClick={()=> this.setValue(null)}>X
                     </span>
+                </div>
+                <div id='win-status'>
+                    {complete && won ? 'You Win!' : null}
+                    {complete && !won ? 'Not Valid': null}
                 </div>
             </div>
         )
