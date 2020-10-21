@@ -2,6 +2,7 @@ import React from 'react'
 import Cell from './Cell'
 import '../src/Board.css'
 const GameGenerator = require('./GameGenMethods')
+const gameCreator = new GameGenerator()
 const SudokuValidator = require('./SudokuValidator')
 
 export default class Board extends React.Component{
@@ -20,10 +21,10 @@ export default class Board extends React.Component{
 
     makeNewGame(difficulty) {
         let newGame = null
-        if (difficulty === 'easy') newGame = GameGenerator.createEasy
-        if (difficulty === 'medium') newGame = GameGenerator.createMedium
-        if (difficulty === 'hard') newGame = GameGenerator.createHard
-        if (difficulty === 'expert') newGame = GameGenerator.createExpert
+        if (difficulty === 'easy') newGame = gameCreator.createEasy()
+        if (difficulty === 'medium') newGame = gameCreator.createMedium()
+        if (difficulty === 'hard') newGame = gameCreator.createHard()
+        if (difficulty === 'expert') newGame = gameCreator.createExpert()
         this.setState({
             board: newGame,
             displayBoard: this.makeTable(newGame),
@@ -32,8 +33,8 @@ export default class Board extends React.Component{
 
     }
     makeDefaultBoard() {
-        // const board = GameGenerator.createMedium
-        const board = GameGenerator.creatTest
+        // const board = gameCreator.createMedium
+        const board = gameCreator.creatTest()
         this.setState({
             board: board,
             displayBoard: this.makeTable(board)
