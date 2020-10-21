@@ -176,9 +176,7 @@ function generateGame(diffculty) {
     return game
 }
 
-module.exports = 
-
-class GameGenerator {
+export default class GameGenerator {
     constructor() {
         this.EASY = 43
         this.MEDIUM = 51

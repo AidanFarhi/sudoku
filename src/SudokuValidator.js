@@ -86,7 +86,7 @@ function boardFull(board) {
     return full
 }
 
-module.exports = {
+export default {
     isValid: sudokuValidator,
     isFull: boardFull
 }
