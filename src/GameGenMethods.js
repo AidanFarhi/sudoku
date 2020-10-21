@@ -198,7 +198,7 @@ class GameGenerator {
     createExpert() {
         return generateGame(this.EXPERT)
     }
-    creatTest() {
+    createTest() {
         return generateGame(this.TEST)
     }
 }

@@ -35,8 +35,8 @@ export default class Board extends React.Component{
 
     }
     makeDefaultBoard() {
-        // const board = gameCreator.createMedium
-        const board = gameCreator.creatTest()
+        const board = gameCreator.createMedium()
+        // const board = gameCreator.createTest()
         this.setState({
             board: board,
             displayBoard: this.makeTable(board)
