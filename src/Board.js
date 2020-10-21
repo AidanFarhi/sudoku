@@ -28,7 +28,9 @@ export default class Board extends React.Component{
         this.setState({
             board: newGame,
             displayBoard: this.makeTable(newGame),
-            currentDifficulty: difficulty
+            currentDifficulty: difficulty,
+            complete: false,
+            won: false
         })
 
     }
