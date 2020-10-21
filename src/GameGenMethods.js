@@ -176,18 +176,29 @@ function generateGame(diffculty) {
     return game
 }
 
-// Choose how many tiles to remove.
-// This determines difficulty.
-const EASY = 43
-const MEDIUM = 51
-const HARD = 56
-const EXPERT = 58
-const TEST = 1
+module.exports = 
 
-module.exports = {
-    createEasy: generateGame(EASY),
-    createMedium: generateGame(MEDIUM),
-    createHard: generateGame(HARD),
-    createExpert: generateGame(EXPERT),
-    creatTest: generateGame(TEST)
+class GameGenerator {
+    constructor() {
+        this.EASY = 43
+        this.MEDIUM = 51
+        this.HARD = 56
+        this.EXPERT = 58
+        this.TEST = 1
+    }
+    createEasy() {
+        return generateGame(this.EASY)
+    }
+    createMedium() {
+        return generateGame(this.MEDIUM)
+    }
+    createHard() {
+        return generateGame(this.HARD)
+    }
+    createExpert() {
+        return generateGame(this.EXPERT)
+    }
+    createTest() {
+        return generateGame(this.TEST)
+    }
 }
