@@ -32,7 +32,8 @@ export default class Board extends React.Component{
 
     }
     makeDefaultBoard() {
-        const board = GameGenerator.createMedium
+        // const board = GameGenerator.createMedium
+        const board = GameGenerator.creatTest
         this.setState({
             board: board,
             displayBoard: this.makeTable(board)
@@ -156,8 +157,18 @@ export default class Board extends React.Component{
                     </span>
                 </div>
                 <div id='win-status'>
-                    {complete && won ? 'You Win!' : null}
-                    {complete && !won ? 'Not Valid': null}
+                    {complete && won ? 
+                    <div id='win-status-valid'>
+                        <h2>You win!</h2>
+                        <p>You may start a new game, or screenshot to flex on instagram.</p>
+                    </div> 
+                    : null}
+                    {complete && !won ? 
+                    <div id='win-status-invalid'>
+                        <h2>Not a valid solution.</h2>
+                        <p>Keep trying, or start a new game.</p>
+                    </div>
+                    : null}
                 </div>
             </div>
         )

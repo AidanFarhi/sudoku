@@ -182,10 +182,12 @@ const EASY = 43
 const MEDIUM = 51
 const HARD = 56
 const EXPERT = 58
+const TEST = 1
 
 module.exports = {
     createEasy: generateGame(EASY),
     createMedium: generateGame(MEDIUM),
     createHard: generateGame(HARD),
-    createExpert: generateGame(EXPERT)
+    createExpert: generateGame(EXPERT),
+    creatTest: generateGame(TEST)
 }
