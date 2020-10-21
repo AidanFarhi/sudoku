@@ -1,8 +1,8 @@
 import React from 'react'
 import Cell from './Cell'
 import '../src/Board.css'
-const GameGenerator = require('./GameGenMethods')
-// import GameGenerator from './GameGenMethods'
+// const GameGenerator = require('./GameGenMethods')
+import GameGenerator from './GameGenMethods'
 const gameCreator = new GameGenerator()
 const SudokuValidator = require('./SudokuValidator')
 
