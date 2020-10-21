@@ -9,7 +9,7 @@ body {
     z-index: -1;
     position: fixed;
     top: 0;
-    left: 100px;    
+    left: 135px;    
     opacity: .8;
 }
 #header {
@@ -82,5 +82,29 @@ td:nth-child(9) {
     padding-right: 20px;
 }
 .clicked {
+    background-color: rgb(213, 225, 213);
+}
+#win-status-invalid {
+    text-align: center;
+    color: rgb(8, 77, 8);
+    position: fixed;
+    left: 80px;
+    bottom: 50%;
+    border: 1px solid rgb(58, 58, 58);
+    border-radius: 2px;
+    padding: 20px;
+    background-color: rgb(213, 225, 213);
+}
+
+#win-status-valid {
+    text-align: center;
+    color: rgb(8, 77, 8);
+    width: 190px;
+    position: fixed;
+    left: 80px;
+    bottom: 50%;
+    border: 1px solid rgb(58, 58, 58);
+    border-radius: 2px;
+    padding: 20px;
     background-color: rgb(213, 225, 213);
 }
