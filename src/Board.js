@@ -4,7 +4,8 @@ import '../src/Board.css'
 // const GameGenerator = require('./GameGenMethods')
 import GameGenerator from './GameGenMethods'
 const gameCreator = new GameGenerator()
-const SudokuValidator = require('./SudokuValidator')
+import SudokuValidator from './SudokuValidator'
+// const SudokuValidator = require('./SudokuValidator')
 
 export default class Board extends React.Component{
     constructor() {
