@@ -1,4 +1,5 @@
 body {
+    margin: 0;
     background: url('scene.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -111,75 +112,63 @@ td:nth-child(9) {
     background-color: rgb(213, 225, 213);
 }
 
-/* Mobile Responsive Section */
+/* 
+Mobile Responsive Section 
 
-/* Phone */
+- Smallest width to largest width
+*/
+
 @media screen and (max-width: 420px) {
+    #main-div {
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        grid-template-columns: 10px auto 10px;
+        grid-template-rows: 5% 5% 50% 20%;
+
+    }
     #header-div {
-        text-align: center;
-        color: rgb(4, 49, 4);
-        font-family: 'Farsan', cursive;
-        z-index: -1;
-        position: absolute;
-        top: 0%;  
-        left: 32%;
-        opacity: .8;
+        grid-column: 2/3;
+        grid-row: 1/2;
+        font-size: .8em;
     }
     #difficulty-selection {
-        position: absolute;
         display: flex;
         flex-direction: row;
-        width: 100vw;
-        margin-top: -7%;
-        margin-left: 14%;
+        justify-content: center;
+        grid-column: 2/3;
+        grid-row: 2/3;
+        margin-left: 0;
         margin-right: 0;
     }
     #difficulty-selection > button {
-        padding: 8px;
+        padding: 10px;
         color:rgb(4, 49, 4);
-        /* margin-right: 5px; */
+        margin-right: 5px;
         border: 1px solid rgb(34, 34, 34);
         border-radius: 2px;
     }
-    #main-div {
-        padding-top: 150px;
-    }
     table {
-        margin: 1em auto;
-        border-collapse: collapse;
-    }
-    tr:nth-child(3n) {
-        border-bottom: 2px solid rgb(34, 34, 34);
-    }
-    tr:nth-child(9) {
-        border-bottom: 1px solid;
+        grid-row: 3/4;
+        grid-column: 2/3;
     }
     td {
-        height: 34px;
-        width: 34px;
-        border: 1px solid;
-        text-align:center;
+        height: 40px;
+        width: 40px;
     }
     span {
-        color: rgb(1, 85, 5);
-        font-size: 24px;
+        font-size: 20px;
     }
     #number-selection-div {
-        text-align: center;
-        position: absolute;
+        position: relative;
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
-        width: 100vw;
-        top: 85%;
-        left: 2%;
+        grid-row: 4/5;
+        margin: auto;
     }
     .number-selection {
         border: 1px solid rgb(58, 58, 58);
-        padding: 10px;
-        /* padding-left: 20px;
-        padding-right: 20px; */
+        padding-left: 5px;
+        padding-right: 5px;
     }
-
 }
-
